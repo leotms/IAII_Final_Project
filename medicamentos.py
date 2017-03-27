@@ -56,7 +56,7 @@ known_medicines = [
     'femara',
     'dostinex',
     'insulina',
-    'badan',
+    'ketoprofeno',
     'omeprazol',
     'atorvastatina',
     'diclofenac',
