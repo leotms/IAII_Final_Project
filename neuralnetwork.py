@@ -39,7 +39,7 @@ def normalize(dataset):
 
 def readData(trainset, normalize_set = False):
 
-    dataset = pd.read_csv(trainset, delimiter = ",", index_col = False, usecols=['lenght', 'hashtags', 'mentions', 'contains_url', 'demand_words', 'offer_words',  'neg_words', 'pos_words',  'n_known_medicines','cluster'])
+    dataset = pd.read_csv(trainset, delimiter = ",", index_col = False, usecols=['lenght', 'retweet_count', 'hashtags', 'mentions', 'contains_url', 'demand_words', 'offer_words', 'tfidf_demand', 'tfidf_offer',  'neg_words', 'pos_words',  'n_known_medicines','cluster'])
 
     if normalize_set:
         #Normalize Dataset

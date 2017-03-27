@@ -19,17 +19,17 @@ if __name__ == "__main__":
     #  - four neurons in the input layer (attributes of examples)
     #  - two neurons in the output layer, since we want to know whether the
     #    example belongs to the Iris Setosa or not.
-    n_inputs   = 9
+    n_inputs   = 12
     n_outputs  = 3
 
     #Neurons range between 2 and 10
-    neuron_range = [i for i in range(3,10)]
+    neuron_range = [10, 15, 20, 25, 30]
 
     #####################################################################
     #                          TRAINSET 50%                             #
     #####################################################################
 
-    for i in range(10):
+    for i in range(0, 10):
 
         #loading datasets for E3 part 1
         print("\n\nStarting...\nLoading data sets...")
@@ -58,4 +58,4 @@ if __name__ == "__main__":
 
             total_error, false_positives, false_negatives = calculate_errors(expected_vs_predicted)
 
-            save_network(network, 'prueba3.js')
+            save_network(network, 'NN_N%d_TS%d_150e.js'%(neurons, i))
