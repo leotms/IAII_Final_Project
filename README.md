@@ -29,7 +29,7 @@ consumer_secret, access_token, access_secret` variables in the `config.py` file 
 
 ## Disclaimer
 
-  This study was conducted with academic purposes only. There is no intentions from neither of the authors to perform activities related to storage, sale, or distribution of medicines.
+  This study was conducted with academic purposes only. There are no intentions from neither of the authors to perform activities related to storage, sale, or distribution of medicines.
 
 ## Other:
   - All training sets used (0 to 9) with their respectively test sets are located in the `docs` folder.
