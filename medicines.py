@@ -1,5 +1,5 @@
 '''
-    File:        medicamentos.py
+    File:        medicines.py
     Description: Connects to twitter API to retreive tweets and classify them using a
                  already trained neural network.
     Authors:     Leonardo Martinez #11-10576
