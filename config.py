@@ -1,8 +1,7 @@
 '''
-    File:        config.py
-    Description: Contains tokens for Twitter API. This tokens are from a private and are
-                 provided only for application testing. For other uses please configure
-                 your own account API tokens.
+    File:        medicines.py
+    Description: Connects to twitter API to retreive tweets and classify them using a
+                 already trained neural network.
     Authors:     Leonardo Martinez #11-10576
                  Nicolas Manan     #06-39883
                  Joel Rivas        #11-10866
