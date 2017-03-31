@@ -1,10 +1,11 @@
 '''
     File:        medicamentos.py
-    Description: Connects to twitter API to retreive tweets and classify them.
+    Description: Connects to twitter API to retreive tweets and classify them using a
+                 already trained neural network.
     Authors:     Leonardo Martinez #11-10576
                  Nicolas Manan     #06-39883
                  Joel Rivas        #11-10866
-    Updated:     03/05/2017
+    Updated:     03/30/2017
 '''
 import tweepy as tp
 import sys
@@ -344,12 +345,15 @@ class MyStreamListener(tp.StreamListener):
         return True
 
 def tweetpy_auth():
+    '''
+        Authenthication for tweetpy
+    '''
 
     # Keys
-    consumer_key = 'ayOjM353RdIr9OL85CzTa4ymr'
-    consumer_secret = 'NSgQLchCDvVXmsMHRxaehEHjc3SaWSMYZ1vCN3qqbwHE9VFgqv'
-    access_token = '77759767-e9K9RtJMHRzmxLIpzykgG9aeViAvsoVCavqAUUoLr'
-    access_secret = '5kquNGlQKCOCnWsbVdKMvDCD9vvZlomlg5Hnp1pSuTpLR'
+
+    from config import get_tokens
+
+    consumer_key, consumer_secret, access_token, access_secret = get_tokens()
 
     auth = tp.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
@@ -359,14 +363,18 @@ def tweetpy_auth():
 
     return api
 
-#loading datasets for E3 part 1
-print("Loading network...")
+#Loading already trained newwork. By default it uses the best neural network.
+print("Cargando Red Neuronal...")
 network = load_network('trained_networks/NN_N10_TS0.js')
-print("Done.")
+print("Listo.")
 
 mins, maxs = extract_minmax('data/TrainingSet_0.csv')
 
 def send_to_neuronal(status):
+
+    '''
+        Sends status to neural netwok.
+    '''
 
     medicines = []
     for medicine in known_medicines:
@@ -381,6 +389,10 @@ def send_to_neuronal(status):
         print("Tweet de @%s no contiene medicinas conocidas. Tuit = [%s]"%(status.user.screen_name, status.text))
 
 def process_tweet(user, text, medicines, features):
+
+    '''
+        Process a tweet text and passes it to the neural network for prediction.
+    '''
 
     normalized_vector = []
 
@@ -401,21 +413,37 @@ def process_tweet(user, text, medicines, features):
     result = predict(network, normalized_vector)
 
     if result == 0:
-        print("Tweet de @%s NO BUSCA NI OFERTA las siguientes medicinas %s. Tuit = [%s]"%(user, str(medicines), text))
+        print("Tuit de @%s NO POSEE medicinas conocidas %s."%(user, str(medicines)))
     if result == 1:
-        print("Tweet de @%s OFERTA las siguientes medicinas %s. Tuit = [%s]"%(user, str(medicines), text))
+        print("Tuit de @%s OFERTA las siguientes medicinas %s."%(user, str(medicines)))
     if result == 2:
-        print("Tweet de @%s SOLICITA las siguientes medicinas %s. Tuit = [%s]"%(user, str(medicines), text))
+        print("Tuit de @%s SOLICITA las siguientes medicinas %s."%(user, str(medicines)))
 
-def start_streaming():
+    print("Tuit = [%s]"%text)
+    print("--------------------------------------------------------------------------\n")
 
-    print('Starting Streaming... \n')
+def start_streaming(tracking):
+
+    '''
+        Starts streaming for listening tweets.
+    '''
+
+    print('Comenzando streaming para capturar tuits con que contengan "%s"... \n'%tracking)
+    print("--------------------------------------------------------------------------\n")
     api = tweetpy_auth()
     myStreamListener = MyStreamListener()
     myStream = tp.Stream(auth = api.auth, listener = myStreamListener)
 
-    myStream.filter(track=['ServicioPublico'])
+    myStream.filter(track=[tracking])
 
 if __name__ == '__main__':
+    '''
+        Starts tracking for a given word.
+    '''
 
-    start_streaming()
+    if len(sys.argv) < 2:
+        print("ERROR: Missing tracking argument.")
+        sys.exit()
+    else:
+        tracking = sys.argv[1]
+        start_streaming(tracking)

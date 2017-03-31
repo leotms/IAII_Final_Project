@@ -1,7 +1,6 @@
 '''
-    File:        excercise3_p1.py
-    Description: Performs activities related to excercise 3, part one:
-                 Predicts a binary classification for Iris Setosa.
+    File:        train_neural_network.py
+    Description: Creates and trains a newural network whith provided values.
     Authors:     Leonardo Martinez #11-10576
                  Nicolas Manan     #06-39883
                  Joel Rivas        #11-10866
@@ -16,13 +15,11 @@ if __name__ == "__main__":
     epochs = 150
 
     #for this problem, we are setting:
-    #  - four neurons in the input layer (attributes of examples)
-    #  - two neurons in the output layer, since we want to know whether the
-    #    example belongs to the Iris Setosa or not.
+    #  - 12 neurons in the input layer (attributes of examples)
     n_inputs   = 12
     n_outputs  = 3
 
-    #Neurons range between 2 and 10
+    #Neurons ranges
     neuron_range = [10, 15, 20, 25, 30]
 
     #####################################################################
@@ -58,4 +55,4 @@ if __name__ == "__main__":
 
             total_error, false_positives, false_negatives = calculate_errors(expected_vs_predicted)
 
-            save_network(network, 'NN_N%d_TS%d_150e.js'%(neurons, i))
+            save_network(network, 'NN_N%d_TS%d.js'%(neurons, i))

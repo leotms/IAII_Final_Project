@@ -1,13 +1,10 @@
 '''
     File:        neuralnetwork.py
-    Description: Performs activities related to excercise 2:
-                 Creates a neural networks between 2 and 10 neurons in the
-                 hidden layer to test 3 pairs of datasets with 500, 1000 and 2000
-                 vectors.
+    Description: Provides all functions needed for a neural network to work.
     Authors:     Leonardo Martinez #11-10576
                  Nicolas Manan     #06-39883
                  Joel Rivas        #11-10866
-    Updated:     03/05/2017
+    Updated:     03/30/2017
 '''
 
 import numpy  as np
@@ -38,7 +35,9 @@ def normalize(dataset):
     return normalizedDataset, vector_min, vector_max
 
 def readData(trainset, normalize_set = False):
-
+    '''
+        Reads the data provided in a file.
+    '''
     dataset = pd.read_csv(trainset, delimiter = ",", index_col = False, usecols=['lenght', 'retweet_count', 'hashtags', 'mentions', 'contains_url', 'demand_words', 'offer_words', 'tfidf_demand', 'tfidf_offer',  'neg_words', 'pos_words',  'n_known_medicines','cluster'])
 
     if normalize_set:
@@ -240,10 +239,7 @@ def calculate_predictions(network, testset):
 
 def calculate_errors(results):
     '''
-        Calculates errors for obtained results.
-        Total MSE for Testing.
-        # of False Positives
-        # of False Negatives
+        Calculates errors when training. Estracting data from the confusion matrix.
     '''
     total_error     = 0
     false_positives = 0
@@ -264,8 +260,6 @@ def calculate_errors(results):
             for j in range(3):
                 if result[0] == i and result[1] == j:
                     confusion_matrix[i][j] += 1
-
-    print(confusion_matrix)
 
     accuracy = (confusion_matrix[0][0] + confusion_matrix[1][1] + confusion_matrix[2][2])/(len(results))
 

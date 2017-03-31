@@ -1,6 +1,3 @@
-Starting...
-Loading data sets...
-
 Training Trainset 0 for Neural network with 10 neurons, 150 epochs and alpha = 0.100000...
 Done.
 Predicting using Trainset...
@@ -81,3 +78,60 @@ True Positive Rate (recall) for Demand Tweets: 0.870000
 Positive Predictive Value (precision) for Other Tweets: 0.862069
 Positive Predictive Value (precision) for Offer Tweets: 0.841860
 Positive Predictive Value (precision) for Demand Tweets: 0.824645
+
+Starting...
+Loading data sets...
+
+Training Trainset 0 for Neural network with 25 neurons, 150 epochs and alpha = 0.100000...
+Done.
+Predicting using Trainset...
+Done.
+[[1429, 236, 135], [146, 1610, 44], [172, 81, 1547]]
+---- RESULTS ----
+Total MSE: 0.321296
+Total Accuracy: 0.849259
+True Positive Rate (recall) for Other Tweets: 0.793889
+True Positive Rate (recall) for Offer Tweets: 0.894444
+True Positive Rate (recall) for Demand Tweets: 0.859444
+Positive Predictive Value (precision) for Other Tweets: 0.817974
+Positive Predictive Value (precision) for Offer Tweets: 0.835496
+Positive Predictive Value (precision) for Demand Tweets: 0.896292
+Predicting using Testset...
+Done.
+[[155, 20, 25], [11, 182, 7], [19, 13, 168]]
+---- RESULTS ----
+Total MSE: 0.378333
+Total Accuracy: 0.841667
+True Positive Rate (recall) for Other Tweets: 0.775000
+True Positive Rate (recall) for Offer Tweets: 0.910000
+True Positive Rate (recall) for Demand Tweets: 0.840000
+Positive Predictive Value (precision) for Other Tweets: 0.837838
+Positive Predictive Value (precision) for Offer Tweets: 0.846512
+Positive Predictive Value (precision) for Demand Tweets: 0.840000
+
+Training Trainset 0 for Neural network with 30 neurons, 150 epochs and alpha = 0.100000...
+Done.
+Predicting using Trainset...
+Done.
+[[1417, 244, 139], [138, 1616, 46], [176, 85, 1539]]
+---- RESULTS ----
+Total MSE: 0.328333
+Total Accuracy: 0.846667
+True Positive Rate (recall) for Other Tweets: 0.787222
+True Positive Rate (recall) for Offer Tweets: 0.897778
+True Positive Rate (recall) for Demand Tweets: 0.855000
+Positive Predictive Value (precision) for Other Tweets: 0.818602
+Positive Predictive Value (precision) for Offer Tweets: 0.830848
+Positive Predictive Value (precision) for Demand Tweets: 0.892691
+Predicting using Testset...
+Done.
+[[152, 23, 25], [13, 180, 7], [20, 12, 168]]
+---- RESULTS ----
+Total MSE: 0.391667
+Total Accuracy: 0.833333
+True Positive Rate (recall) for Other Tweets: 0.760000
+True Positive Rate (recall) for Offer Tweets: 0.900000
+True Positive Rate (recall) for Demand Tweets: 0.840000
+Positive Predictive Value (precision) for Other Tweets: 0.821622
+Positive Predictive Value (precision) for Offer Tweets: 0.837209
+Positive Predictive Value (precision) for Demand Tweets: 0.840000

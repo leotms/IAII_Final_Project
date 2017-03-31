@@ -1,3 +1,12 @@
+'''
+    File:        filter_tweets.py
+    Description: Provides all functions needed for filtering raw data.
+    Authors:     Leonardo Martinez #11-10576
+                 Nicolas Manan     #06-39883
+                 Joel Rivas        #11-10866
+    Updated:     03/30/2017
+'''
+
 import pandas as pd
 import random as rd
 
@@ -593,20 +602,17 @@ def split_crossvalidation(filenames):
         training_data.to_csv('TrainingSet_' + str(i) + '.csv', index = None, sep=',')
         test_data.to_csv('TestSet_' + str(i) + '.csv', index = None, sep=',')
 
-# print("Running first filter...")
-# # first_filter("CollectedData/TweetsBirdwatcher.csv")
-# print("Done.")
-# print("------------------")
-# print("Running second filter...")
-# second_filter("CollectedData/TweetsHumanClassified.csv")
-# print("Done.")
-# print("------------------")
+print("Running first filter...")
+first_filter("CollectedData/TweetsBirdwatcher.csv")
+print("Done.")
+print("------------------")
+print("Running second filter...")
+second_filter("CollectedData/TweetsHumanClassified.csv")
+print("Done.")
+print("------------------")
 
+# Used for extracting most common medicines.
 # identify_medicines("CollectedData/offer_data.csv")
+
 get_features(["CollectedData/demand_data_2000.csv", "CollectedData/offer_data_2000.csv", "CollectedData/other_data_2000.csv"])
 split_crossvalidation(["CollectedData/demand_data_2000_featured.csv", "CollectedData/offer_data_2000_featured.csv", "CollectedData/other_data_2000_featured.csv"])
-
-# get_features("CollectedData/demand_data_2000_verified.csv")
-# select_samle("CollectedData/offer_data.csv", 2000)
-# select_samle("CollectedData/demand_data.csv", 2000)
-# select_samle("CollectedData/other_data.csv", 2000)
