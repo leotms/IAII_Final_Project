@@ -5,7 +5,7 @@
 The crisis of medicines in Venezuela has led people to use Twitter as a tool for searching and offering medicines. This study seeks to facilitate the search of medications on Twitter using an Artificial Intelligence algorithm under supervised learning. A neural network was trained with traing and testing sets of 6000 tuits manually classified and pre-processed according to characteristics that gave better experimental results in the classification. As a result, the best neuronal network obtained was capable to identify tweets with 84% accuracy and 92% recall for supply tics, 87% for demand and
 74% for other tweets. The implementation and training of a neural network for automatic identification of tweets can be of important help for medicines localization in Venezuela.
 
-Futher results can be found in the final report (in spanish) under the `docs/` folder in this repository.
+Further results can be found in the final report (in spanish) under the `docs/` folder in this repository.
 
 ## Requirements:
   - Python 3.x
@@ -43,4 +43,4 @@ consumer_secret, access_token, access_secret` variables in the `config.py` file 
 - [Nicolás Mañan](https://github.com/nmanan)
 - [Joel Rivas](https://github.com/JoelRg)
 
-### Last Updated: 03/30/2017
+### Last Updated: 04/03/2017
